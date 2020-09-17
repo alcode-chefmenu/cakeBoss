@@ -1,4 +1,3 @@
-
 import 'package:cakeboss/backend/data/dataModel.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -9,8 +8,7 @@ ThemeData themeData;
 
 class AuthenticationBloc extends Bloc<AuthenticationEvent, AuthenticationState>
     with ChangeNotifier {
-  @override
-  AuthenticationState get initialState => Uninitialized();
+  AuthenticationBloc() : super(Uninitialized());
 
   @override
   Stream<AuthenticationState> mapEventToState(
@@ -19,7 +17,7 @@ class AuthenticationBloc extends Bloc<AuthenticationEvent, AuthenticationState>
       yield* _mapAppStartedToState();
     }
     if (event is LoggedIn) {
-      yield* _mapLoggedInToState(event.user,event.sales);
+      yield* _mapLoggedInToState(event.user, event.sales);
     }
     if (event is LoggedInWithOutEmail) {
       yield* _mapLoggedInWithOutEmailToState();
@@ -37,8 +35,9 @@ class AuthenticationBloc extends Bloc<AuthenticationEvent, AuthenticationState>
     }
   }
 
-  Stream<AuthenticationState> _mapLoggedInToState(Login user,Sales sales) async* {
-    yield Authenticated(user: user,sales: sales);
+  Stream<AuthenticationState> _mapLoggedInToState(
+      Login user, Sales sales) async* {
+    yield Authenticated(user: user, sales: sales);
   }
 
   Stream<AuthenticationState> _mapLoggedInWithOutEmailToState() async* {

@@ -6,9 +6,9 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'bloc.dart';
 
 class LoginBloc extends Bloc<LoginEvent, LoginState> {
-  @override
-  LoginState get initialState => LoginState();
+  LoginBloc() : super(LoginState());
 
+  @override
   @override
   @override
   Stream<LoginState> mapEventToState(LoginEvent event) async* {

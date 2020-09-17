@@ -1,3 +1,4 @@
+import 'dart:core';
 import 'dart:ui';
 
 import 'package:cakeboss/backend/data/dataModel.dart';
@@ -25,8 +26,11 @@ abstract class DataState extends Equatable {
 }
 
 class DataInitial extends DataState {}
+
 class Loading extends DataState {}
+
 class Failure extends DataState {}
+
 class Success extends DataState {}
 
 class SalesView extends DataState {

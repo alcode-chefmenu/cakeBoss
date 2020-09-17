@@ -9,15 +9,13 @@ import 'backend/ui/home_screen.dart';
 import 'backend/ui/login_screen.dart';
 import 'backend/ui/splash_screen.dart';
 
-
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
-  BlocSupervisor.delegate = SimpleBlocDelegate();
+  Bloc.observer = SimpleBlocDelegate();
 
   runApp(
     BlocProvider(
-      create: (context) =>
-          AuthenticationBloc()..add(AppStarted()),
+      create: (context) => AuthenticationBloc()..add(AppStarted()),
       child: MyApp(),
     ),
   );

@@ -11,9 +11,8 @@ class DataBloc extends Bloc<DataEvent, DataState> {
   final Login userLogin;
   DateTime beginDate;
   DateTime endDate;
-  DataBloc({@required this.sales, @required this.userLogin});
-  @override
-  DataState get initialState => DataInitial();
+  DataBloc({@required this.sales, @required this.userLogin})
+      : super(DataInitial());
 
   @override
   Stream<DataState> mapEventToState(

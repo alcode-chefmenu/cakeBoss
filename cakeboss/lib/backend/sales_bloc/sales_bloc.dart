@@ -9,6 +9,9 @@ import 'bloc.dart';
 class SalesBloc extends Bloc<SalesEvent, SalesState> {
   DateTime initialDate = DateTime.now().add(Duration(days: -11));
   DateTime finalDate = DateTime.now().add(Duration(days: 1));
+
+  SalesBloc() : super(SalesInitial());
+
   // List<PedidosTienda> storeOrders = [];
   // List<PedidosTienda> storeOrdersSelected = [];
   // List<PedidosDia> dayOrders = [];
@@ -21,8 +24,6 @@ class SalesBloc extends Bloc<SalesEvent, SalesState> {
   // List<PopularProducts> products = [];
   // List<PopularProducts> productsSelected = [];
   // List<DeliveriesAfterHours> deliveryAfterHour = [];
-  @override
-  SalesState get initialState => SalesInitial();
 
   @override
   Stream<SalesState> mapEventToState(
