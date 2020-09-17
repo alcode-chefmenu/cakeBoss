@@ -37,7 +37,13 @@ class AuthenticationBloc extends Bloc<AuthenticationEvent, AuthenticationState>
 
   Stream<AuthenticationState> _mapLoggedInToState(
       Login user, Sales sales) async* {
-    yield Authenticated(user: user, sales: sales);
+    if (user.establishment.colors.primary != null) {
+      yield Authenticated(user: user, sales: sales);
+    } else {
+      user.establishment.colors.primary = "#db071e";
+      user.establishment.colors.secondary = "#006db5";
+      yield Authenticated(user: user, sales: sales);
+    }
   }
 
   Stream<AuthenticationState> _mapLoggedInWithOutEmailToState() async* {

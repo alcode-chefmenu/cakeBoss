@@ -89,13 +89,13 @@ class Establishment {
         id: json["id"] == null ? null : json["id"],
         name: json["name"] == null ? null : json["name"],
         colors:
-            json["colors"] == null ? null : Colorss.fromJson(json["colors"]),
+            json["colorss"] == null ? null : Colorss.fromJson(json["colorss"]),
       );
 
   Map<String, dynamic> toJson() => {
         "id": id == null ? null : id,
         "name": name == null ? null : name,
-        "colors": colors == null ? null : colors.toJson(),
+        "colorss": colors == null ? null : colors.toJson(),
       };
 }
 

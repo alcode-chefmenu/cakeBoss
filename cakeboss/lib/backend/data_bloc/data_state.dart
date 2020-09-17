@@ -93,7 +93,7 @@ class SalesView extends DataState {
   }
 
   List<charts.Series<Strips, String>> dataFranjasVal() {
-    print(sales.strips);
+    print(sales.strips[0].type);
     return [
       charts.Series<Strips, String>(
         id: 'Franja horaria',

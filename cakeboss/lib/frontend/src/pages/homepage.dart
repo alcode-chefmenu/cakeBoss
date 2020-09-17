@@ -178,6 +178,7 @@ class HomePage extends StatelessWidget {
   }
 }
 
+// NO USAR AUN
 class _CustomGridCard extends StatelessWidget {
   const _CustomGridCard(
       {this.title,
