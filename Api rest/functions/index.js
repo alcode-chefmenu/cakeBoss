@@ -11,7 +11,7 @@ app.use((req, res, next) => {
 });
 
 app.get("/sales", (request, response) => {
-  response.json({
+  response.send({
     storeOrders: [
       { store: "Chia Fruver", amount: "154", value: "20042540" },
       { store: "Bog sta fe", amount: "106", value: "14683970" },
@@ -129,10 +129,10 @@ app.get("/sales", (request, response) => {
   });
 });
 app.get("/login", (request, response) => {
-  response.json({
+  response.send({
     token: "EL_PUTISIMO_TOKEN",
     establishment: {
-      id: 001,
+      id: 1,
       name: "D1 Villa Elisa",
       colorss: 
         {
@@ -148,8 +148,3 @@ app.get("/login", (request, response) => {
   });
 });
 exports.app = functions.https.onRequest(app)
-// app.listen("8010", () => {
-//   console.log("Listening on port 8010");
-// });
-
-

@@ -8,9 +8,6 @@ import 'bloc.dart';
 class LoginBloc extends Bloc<LoginEvent, LoginState> {
   LoginBloc() : super(LoginState());
 
-  @override
-  @override
-  @override
   Stream<LoginState> mapEventToState(LoginEvent event) async* {
     if (event is LoginWithUserAndPassword) {
       yield* _mapLoginWithUserAndPasswordToState(

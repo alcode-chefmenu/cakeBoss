@@ -11,7 +11,11 @@ class ServiceFactory {
 
   final String routeAuthLogout = '/auth/logout';
 
-  final String routeSales = 'http://localhost:8010/sales';
+  final String routeSales =
+      'https://us-central1-aphrodite-522bb.cloudfunctions.net/app/sales';
+
+  final String routeLogin =
+      'https://us-central1-aphrodite-522bb.cloudfunctions.net/app/login';
 
   final String serverPrimary = serverLoginServices;
 

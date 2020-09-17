@@ -7,11 +7,11 @@ import 'factory.dart';
 class ServiceInteractor extends ServiceFactory {
   Future<Login> loginPost(Credentials send) async {
     try {
-      String output = await handleMethod(
-          'POST', '$serverPrimary$routeBasePrimary$routeAuthLogin',
-          send: send.toRawJson());
+      // String output =
+      //     await handleMethod('GET', '$routeLogin', send: send.toRawJson());
+      String output = await handleMethod('GET', '$routeLogin');
       Login object = Login.fromJson(json.decode(output));
-      // print(object);
+      print(object);
       return object;
     } catch (e) {
       throw (e);
