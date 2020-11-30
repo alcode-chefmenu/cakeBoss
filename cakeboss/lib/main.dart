@@ -1,3 +1,4 @@
+import 'package:cakeboss/frontend/src/pages/indicators.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -36,12 +37,13 @@ class MyApp extends StatelessWidget {
           return SplassScreen();
         }
         if (state is Authenticated) {
-          return HomeScreen(
-            login: state.user,
-            sales: state.sales,
-          );
+          // return HomeScreen(
+          //   login: state.user,
+          //   sales: state.sales,
+          // );
         }
         if (state is Unauthenticated) {
+          // return Indicators();
           return LoginScreen();
         }
         return Container();

@@ -264,7 +264,7 @@ class _CustomGridCard extends StatelessWidget {
           borderRadius: BorderRadius.circular(8)),
       color: colorFondo,
       child: InkWell(
-        onTap: () => BlocProvider.of<DataBloc>(context).add(ToSalesView()),
+        onTap: () {},
         child: Center(
           child: Padding(
               padding: const EdgeInsets.all(4.0),

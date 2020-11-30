@@ -10,31 +10,26 @@ import 'dart:ui';
 import 'homepage.dart';
 
 class LoginPage extends StatefulWidget {
-  LoginPage({Key key}):
-        super(key: key);
+  LoginPage({Key key}) : super(key: key);
 
   @override
   _LoginPageState createState() => _LoginPageState();
 }
 
 class _LoginPageState extends State<LoginPage> {
-
   LoginBloc _loginBloc;
   final LocalAuthentication auth = LocalAuthentication();
   String user;
   String password;
 
-
   @override
   void initState() {
     super.initState();
     _loginBloc = BlocProvider.of<LoginBloc>(context);
-
   }
 
   void _onFormSubmitted() {
-    _loginBloc.add(LoginWithUserAndPassword(
-        user: user ,password: password));
+    _loginBloc.add(LoginWithUserAndPassword(user: user, password: password));
   }
 
   Widget circulo() {
@@ -54,7 +49,6 @@ class _LoginPageState extends State<LoginPage> {
   bool valueTheme = false;
   @override
   Widget build(BuildContext context) {
-
     return BlocListener<LoginBloc, LoginState>(
       listener: (context, state) {
         if (state is Failure) {
@@ -89,7 +83,8 @@ class _LoginPageState extends State<LoginPage> {
             );
         }
         if (state is Success) {
-          BlocProvider.of<AuthenticationBloc>(context).add(LoggedIn(state.user,state.sales));
+          BlocProvider.of<AuthenticationBloc>(context)
+              .add(LoggedIn(state.user, state.sales));
         }
       },
       child: BlocBuilder<LoginBloc, LoginState>(
@@ -142,7 +137,7 @@ class _LoginPageState extends State<LoginPage> {
                   child: Align(
                     alignment: Alignment.center,
                     child: Container(
-                      height: size.height,
+                      height: size.height * 0.9,
                       width: size.width * 0.8,
                       child: SafeArea(
                         top: true,
@@ -153,16 +148,19 @@ class _LoginPageState extends State<LoginPage> {
                           ),
                           child: Column(
                             mainAxisSize: MainAxisSize.max,
-                            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                            mainAxisAlignment: MainAxisAlignment.center,
                             children: <Widget>[
+                              SizedBox(height: 100),
                               Align(
-                                alignment: Alignment.topRight,
+                                alignment: Alignment.topCenter,
                                 child: Image.asset(
                                   'assets/logoirys.PNG',
-                                  height: size.width * 0.6,
-                                  width: size.width * 0.6,
+                                  height: 100,
+                                  width: 650,
+                                  fit: BoxFit.cover,
                                 ),
                               ),
+                              SizedBox(height: 100),
                               Column(
                                 children: <Widget>[
                                   TextField(
@@ -173,7 +171,7 @@ class _LoginPageState extends State<LoginPage> {
                                     },
                                     style: TextStyle(
                                       fontSize: 25.0,
-                                      color: Colors.blueAccent,
+                                      color: Colors.black,
                                     ),
                                     decoration: InputDecoration(
                                       fillColor: Colors.white,
@@ -186,8 +184,7 @@ class _LoginPageState extends State<LoginPage> {
                                       hintText: "Usuario",
                                       border: OutlineInputBorder(
                                         borderSide: BorderSide(
-                                            color: Colors.blueAccent,
-                                            width: 32.0),
+                                            color: Colors.black, width: 32.0),
                                         borderRadius:
                                             BorderRadius.circular(25.0),
                                       ),
@@ -218,9 +215,10 @@ class _LoginPageState extends State<LoginPage> {
                                         password = v;
                                       });
                                     },
+                                    obscureText: true,
                                     style: TextStyle(
                                       fontSize: 25.0,
-                                      color: Colors.blueAccent,
+                                      color: Colors.black,
                                     ),
                                     decoration: InputDecoration(
                                       fillColor: Colors.white,
@@ -233,8 +231,7 @@ class _LoginPageState extends State<LoginPage> {
                                       hintText: "Contraseña",
                                       border: OutlineInputBorder(
                                         borderSide: BorderSide(
-                                            color: Colors.blueAccent,
-                                            width: 32.0),
+                                            color: Colors.black, width: 32.0),
                                         borderRadius:
                                             BorderRadius.circular(25.0),
                                       ),
@@ -267,43 +264,38 @@ class _LoginPageState extends State<LoginPage> {
                                       shape: RoundedRectangleBorder(
                                           borderRadius:
                                               BorderRadius.circular(8)),
-                                      onPressed: password != null &&
-                                              user != null
-                                          ? () async {
-                                              _onFormSubmitted();
-                                            }
-                                          : null,
+                                      onPressed:
+                                          password != null && user != null
+                                              ? () async {
+                                                  _onFormSubmitted();
+                                                }
+                                              : null,
                                       child: Text(
                                         'Login',
                                         style: TextStyle(
                                             fontSize: 24, color: Colors.white),
                                       ),
-                                      color: Colors.cyan,
+                                      color: Color.fromRGBO(121, 63, 210, 1),
                                     ),
                                   ),
-                                  SizedBox(
-                                    height: 32,
-                                  ),
-                                  GestureDetector(
-                                    onTap: () {
-                                      _biometric();
-                                    },
-                                    child: Container(
-                                      width: 50,
-                                      height: 50,
-                                      decoration: BoxDecoration(
-                                        image: DecorationImage(
-                                          fit: BoxFit.cover,
-                                          image: NetworkImage(
-                                            "https://pc-solucion.es/wp-content/uploads/2019/09/que-es-apple-touch-id.png",
-                                          ),
-                                        ),
-                                      ),
-                                    ),
-                                  ),
-                                  SizedBox(
-                                    height: 32,
-                                  )
+
+                                  // GestureDetector(
+                                  //   onTap: () {
+                                  //     _biometric();
+                                  //   },
+                                  //   child: Container(
+                                  //     width: 50,
+                                  //     height: 50,
+                                  //     decoration: BoxDecoration(
+                                  //       image: DecorationImage(
+                                  //         fit: BoxFit.cover,
+                                  //         image: NetworkImage(
+                                  //           "https://pc-solucion.es/wp-content/uploads/2019/09/que-es-apple-touch-id.png",
+                                  //         ),
+                                  //       ),
+                                  //     ),
+                                  //   ),
+                                  // ),
                                 ],
                               ),
                             ],
@@ -346,7 +338,10 @@ class _LoginPageState extends State<LoginPage> {
             //print(authenticated);
             Navigator.of(context).push(
               MaterialPageRoute(
-                  builder: (BuildContext context) => HomePage(login: null,sales: null,)),
+                  builder: (BuildContext context) => HomePage(
+                        login: null,
+                        sales: null,
+                      )),
             );
           }
         });
